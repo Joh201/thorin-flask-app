@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<!-- {%for dwarf in company %}
-    <h3>{{dwarf.name}}</h3>
-    <p>{{dwarf.description}}</p>
-    <img src="{{dwarf.image_source}}">
+<!-- {%for member in company %}
+    <h3>{{member.name}}</h3>
+    <p>{{member.description}}</p>
+    <img src="{{member.image_source}}">
 {% endfor %} -->
 
 
@@ -19,29 +19,27 @@
     leave on other business, welcomed a fourteenth to fill into their party.
 </p>
 
-{% for dwarf in company %}
+{% for member in company %}
 
 <div class="row featurette">
     {% if loop.index % 2 != 0  %}
         <div class="col-md-7">
-            <h3>{{loop.index}}.{{dwarf.name}}</h3>
-            <p>{{dwarf.description}}</p>
+            <h3><a href="/about/{{member.url}}">{{loop.index}}.{{member.name}}</a></h3>
+            <p>{{member.description}}</p>
         </div>
 
         <div class="col-md-5">
-            <!-- <img src="https://static.wikia.nocookie.net/lotr/images/3/3f/ThorinBIG.jpg" alt=""> -->
-            <img src="{{dwarf.image_source}}" alt="" class="featurette-image image-responsive">
+            <img src="{{member.image_source}}" alt="" class="featurette-image image-responsive">
         </div>
 
     {% else %}
         <div class="col-md-5">
-            <!-- <img src="https://static.wikia.nocookie.net/lotr/images/3/3f/ThorinBIG.jpg" alt=""> -->
-            <img src="{{dwarf.image_source}}" alt="" class="featurette-image image-responsive">
+            <img src="{{member.image_source}}" alt="" class="featurette-image image-responsive">
         </div>
 
         <div class="col-md-7">
-            <h3>{{loop.index}}.{{dwarf.name}}</h3>
-            <p>{{dwarf.description}}</p>
+            <h3><a href="/about/{{member.url}}">{{loop.index}}.{{member.name}}</a></h3>
+            <p>{{member.description}}</p>
         </div>
     {% endif%}
 </div>
