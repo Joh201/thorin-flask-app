@@ -22,17 +22,34 @@
 {% for dwarf in company %}
 
 <div class="row featurette">
-    <div class="col-md-7">
-        <h3>{{dwarf.name}}</h3>
-        <p>{{dwarf.description}}</p>
-    </div>
+    {% if loop.index % 2 != 0  %}
+        <div class="col-md-7">
+            <h3>{{loop.index}}.{{dwarf.name}}</h3>
+            <p>{{dwarf.description}}</p>
+        </div>
 
-    <div class="col-md-5">
-        <!-- <img src="https://static.wikia.nocookie.net/lotr/images/3/3f/ThorinBIG.jpg" alt=""> -->
-        <img src="{{dwarf.image_source}}" alt="" class="featurette-image image-responsive">
-    </div>
+        <div class="col-md-5">
+            <!-- <img src="https://static.wikia.nocookie.net/lotr/images/3/3f/ThorinBIG.jpg" alt=""> -->
+            <img src="{{dwarf.image_source}}" alt="" class="featurette-image image-responsive">
+        </div>
+
+    {% else %}
+        <div class="col-md-5">
+            <!-- <img src="https://static.wikia.nocookie.net/lotr/images/3/3f/ThorinBIG.jpg" alt=""> -->
+            <img src="{{dwarf.image_source}}" alt="" class="featurette-image image-responsive">
+        </div>
+
+        <div class="col-md-7">
+            <h3>{{loop.index}}.{{dwarf.name}}</h3>
+            <p>{{dwarf.description}}</p>
+        </div>
+    {% endif%}
 </div>
- <hr class="featurette-divider">
+    {% if loop.index != loop.length  %}
+        <hr class="featurette-divider">
+
+    {% endif%}
+
 {% endfor %}
 
 {% endblock %}
