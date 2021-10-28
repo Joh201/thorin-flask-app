@@ -21,6 +21,8 @@ def about():
         data = json.load(json_data)
     return render_template('about.html', page_title='About', company=data)
 
+# To open each member in a separate window
+
 
 @app.route("/about/<member_name>")
 def about_member(member_name):
